@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  # Frontend service
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+      - todo-net
+    depends_on:
+      - backend
+
+  # Backend service
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/todolist
+    networks:
+      - mynetwork
+      - todo-net
+    depends_on:
+      - mongodb
+    command: ["npm", "start"]
+
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./path/to/your/init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - mynetwork
+      - todo-net
+
+networks:
+  mynetwork:
+  todo-net:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

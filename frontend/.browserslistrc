@@ -1,0 +1,11 @@
+>0.2%
+not dead
+not op_mini all
+last 2 versions
+not ie <= 11
+
+"browserslist": [
+  ">0.2%",
+  "not dead",
+  "not op_mini all"
+]
