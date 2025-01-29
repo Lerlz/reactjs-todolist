@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+<<<<<<< HEAD
   # Frontend service
   frontend:
     build:
@@ -13,6 +14,18 @@ services:
       - todo-net
     depends_on:
       - backend
+=======
+  # MongoDB service
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - todo-net
+>>>>>>> d7fea6cad1da3b5c41bd4c3df851bb75ad99e790
 
   # Backend service
   backend:
@@ -24,12 +37,16 @@ services:
     environment:
       - MONGO_URI=mongodb://mongodb:27017/todolist
     networks:
+<<<<<<< HEAD
       - mynetwork
+=======
+>>>>>>> d7fea6cad1da3b5c41bd4c3df851bb75ad99e790
       - todo-net
     depends_on:
       - mongodb
     command: ["npm", "start"]
 
+<<<<<<< HEAD
   # MongoDB service
   mongodb:
     image: mongo:latest
@@ -45,6 +62,21 @@ services:
 
 networks:
   mynetwork:
+=======
+  # Frontend service
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3001:3000"
+    networks:
+      - todo-net
+    depends_on:
+      - backend
+
+networks:
+>>>>>>> d7fea6cad1da3b5c41bd4c3df851bb75ad99e790
   todo-net:
     driver: bridge
 

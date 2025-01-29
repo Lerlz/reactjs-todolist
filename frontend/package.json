@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+<<<<<<< HEAD
     "browserslist": "^4.24.4",
+=======
+>>>>>>> d7fea6cad1da3b5c41bd4c3df851bb75ad99e790
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
@@ -13,7 +16,11 @@
     "mongoose": "^8.9.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+<<<<<<< HEAD
     "react-scripts": "^5.0.1"
+=======
+    "react-scripts": "^3.0.1"
+>>>>>>> d7fea6cad1da3b5c41bd4c3df851bb75ad99e790
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,9 +38,13 @@
     "production": [
       ">0.2%",
       "not dead",
+<<<<<<< HEAD
       "not op_mini all",
       "last 2 versions",
       "not ie 11"
+=======
+      "not op_mini all"
+>>>>>>> d7fea6cad1da3b5c41bd4c3df851bb75ad99e790
     ],
     "development": [
       "last 1 chrome version",
