@@ -16,6 +16,7 @@ services:
   backend:
     build:
       context: ./backend
+      dockerfile: Dockerfile
     container_name: backend
     ports:
       - "5000:5000"
@@ -31,9 +32,10 @@ services:
   frontend:
     build:
       context: ./frontend
+      dockerfile: Dockerfile  # Ensure this path is correct
     container_name: frontend
     ports:
-      - "3001:3000"
+      - "3000:3000"
     networks:
       - todo-net
     depends_on:
