@@ -11,6 +11,15 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: adminpassword
     volumes:
-      - mongodb-data:/data/db
+       - mongodb-data:/data/db
+  # backend:
+  #   build: ./backend
+  #   ports:
+  #     - "5000:5000"
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     - MONGO_URI=mongodb://mongo:27017/todolist
+      
 volumes:
   mongodb-data:
