@@ -9,7 +9,17 @@ export default function TodoInput(props) {
             setTodoValue("");
         }
     };
-
+    function handleAddTodos(newTodo) {
+        fetch('http://localhost:5000/todos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ task: newTodo })
+        })
+          .then((response) => response.json())
+          .then((data) => setTodos((prev) => [...prev, data]))
+          .catch((error) => console.error('Error adding todo:', error));
+      }
+      
     return (
         <header>
             <input
